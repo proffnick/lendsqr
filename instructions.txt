@@ -1,0 +1,23 @@
+Shortcuts
+  press r + enter to restart the server
+  press u + enter to show server url
+  press o + enter to open in browser
+  press c + enter to clear console
+  press q + enter to quit
+
+
+  # 1) React + TS (Vite is fast)
+npm create vite@latest my-app -- --template react-ts
+cd my-app
+
+# 2) Styling & tooling
+npm i -D tailwindcss postcss autoprefixer sass
+npx tailwindcss init -p
+
+# 3) Router, icons, tests
+npm i react-router-dom react-icons
+npm i -D vitest @testing-library/react @testing-library/user-event \
+       @testing-library/jest-dom jsdom
+
+# 4) Lint/format (optional but recommended)
+npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier
