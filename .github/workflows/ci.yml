@@ -1,0 +1,46 @@
+name: CI
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18, 20]             # test against LTS versions
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm               # enables lockfile-based cache
+
+      - run: npm ci
+
+      # If you use ESLint
+      - run: npm run lint --if-present
+
+      # Type-check (no output files)
+      - run: npm run typecheck --if-present
+
+      # Unit tests (Vitest). Add --coverage if you want coverage output.
+      - run: npm run test
+
+      # Ensure production build compiles (Vite/CRA/etc.)
+      - run: npm run build --if-present
+
+      # (Optional) upload coverage or build artifacts
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: coverage
+      #     path: coverage/
