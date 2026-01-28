@@ -1,0 +1,28 @@
+/* 1) Design tokens (mobile-first) */
+:root {
+  --c-bg:             251 251 251; /*site background*/
+  --c-surface:        255 255 255; /*pure white*/
+  --c-text:           84 89 125;  /* slate-900-ish */
+  --c-muted:          107 114 128;  /* slate-500-ish */
+  --c-border:         226 232 240;  /* slate-200-ish */
+  --c-primary:        46 121 113;   /* #2E7971 */
+  --c-primary-contrast: 255 255 255;
+  --c-menu-text:      33 63 125; /*for menu texts*/
+  --c-success:        57 205 204; /*success based button color #c9cdcc*/      
+  --c-success-contrast: 57 205 204; /* fair green */
+  /*Radius*/
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* breakpoints */
+  --bp-xs: 380px;
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+
+  /* Font */
+  --f-avenir: 'Avenir Next' ui-sans-serif system-ui sans-serif;
+}

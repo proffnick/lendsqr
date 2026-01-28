@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@import './fonts.css';
+
+/* Map your brand tokens (SCSS :root vars) into Tailwind theme variables */
+@theme inline {
+  /* Colors -> create bg-bg, text-text, border-border, etc */
+  --color-bg: rgb(var(--c-bg));
+  --color-surface: rgb(var(--c-surface));
+  --color-text: rgb(var(--c-text));
+  --color-muted: rgb(var(--c-muted));
+  --color-border: rgb(var(--c-border));
+  --color-primary: rgb(var(--c-primary));
+  --color-primary-contrast: rgb(var(--c-primary-contrast));
+  --color-menu-text: rgb(var(--c-menu-text));
+  --color-success: rgb(var(--c-success));
+  --color-success-contrast: rgb(var(--c-success-contrast));
+
+  /* Radius -> override defaults if you want */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  /* Font Inter, ui-sans-serif, system-ui, sans-serif */
+  --font-sans: var(--f-avenir);
+
+  /* Optional breakpoints if you want your custom xs, etc */
+  --breakpoint-xs: var(--bp-xs);
+  --breakpoint-sm: var(--bp-sm);
+  --breakpoint-md: var(--bp-md);
+  --breakpoint-lg: var(--bp-lg);
+  --breakpoint-xl: var(--bp-xl);
+}
+
+/* Base styles */
+@layer base {
+  html, body, #root { height: 100%; }
+  html { color-scheme: light; }
+  body { 
+    @apply bg-bg text-text font-sans antialiased; 
+  }
+  a { @apply text-primary hover:opacity-90; }
+  input, select, textarea {
+    @apply bg-surface text-text border border-border rounded-lg px-4 py-2 w-full
+      focus:outline-none focus:ring-2 focus:ring-primary/30;
+  }
+  button { @apply inline-flex items-center justify-center rounded-lg px-4 py-2 transition; }
+}
+
+/* Components */
+@layer components {
+  .btn-primary {
+    background: rgb(var(--c-primary));
+    color: rgb(var(--c-primary-contrast));
+    @apply hover:opacity-90 active:opacity-80;
+  }
+  .card { @apply bg-surface border border-border shadow-none; }
+  .login { @apply md:w-3xs }
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-text hover:bg-border/40;
+  }
+}
+
